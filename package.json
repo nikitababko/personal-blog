@@ -1,0 +1,55 @@
+{
+  "name": "personal-blog",
+  "author": {
+    "name": "Nikita Babko",
+    "email": "niki.babko@gmail.com",
+    "url": "https://nikitababko.github.io"
+  },
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky",
+    "knip": "knip"
+  },
+  "dependencies": {
+    "@nikitababko/reset-css": "1.0.4",
+    "next": "14.2.11",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "@types/node": "20.16.5",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "commitizen": "4.3.0",
+    "cz-customizable": "7.2.1",
+    "eslint": "8.57.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "18.0.0",
+    "eslint-config-next": "14.2.11",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-jsx-a11y": "6.10.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-react": "7.36.1",
+    "eslint-plugin-unicorn": "55.0.0",
+    "husky": "9.1.6",
+    "knip": "5.30.2",
+    "lint-staged": "15.2.10",
+    "prettier": "3.3.3",
+    "typescript": "5.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "commitizen.config.js"
+    }
+  }
+}
