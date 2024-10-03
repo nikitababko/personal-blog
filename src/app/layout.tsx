@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import './globals.css';
+import './styles/global.scss';
 
 const openSansRegular = localFont({
   src: './fonts/OpenSans-Regular.woff2',
