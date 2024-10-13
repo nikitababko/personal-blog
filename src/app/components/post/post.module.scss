@@ -8,7 +8,7 @@
   width: 100%;
   max-width: 500px;
   padding: 40px;
-  box-shadow: 0 0 14px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: $box-shadow;
   border-radius: 12px;
   text-decoration: none;
   transition: transition(transform);

@@ -1,6 +1,5 @@
 import type { ValueOf } from 'next/constants';
 import type { ENDPOINTS } from '@/app/constants';
-import { getBaseUrl } from '@/app/helpers/get-base-url';
 
 export type ApiResponse<T> = {
   data: T | null;
@@ -11,7 +10,7 @@ export const getData = async <T>(
   endpoint: ValueOf<keyof typeof ENDPOINTS>,
 ): Promise<ApiResponse<T>> => {
   try {
-    const response = await fetch(`${getBaseUrl()}/${endpoint}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/${endpoint}`);
     const { status, statusText, ok, headers } = response;
 
     if (!ok) {

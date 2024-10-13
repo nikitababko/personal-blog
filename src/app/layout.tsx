@@ -8,10 +8,16 @@ const openSansRegular = localFont({
   weight: '400',
 });
 
+const openSansMedium = localFont({
+  src: './fonts/OpenSans-Medium.woff2',
+  variable: '--open-sans-medium',
+  weight: '500',
+});
+
 const openSansBold = localFont({
   src: './fonts/OpenSans-Bold.woff2',
   variable: '--open-sans-bold',
-  weight: '500',
+  weight: '700',
 });
 
 export const metadata: Metadata = {
@@ -25,8 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${openSansRegular.variable} ${openSansBold.variable}`}>
-        {children}
+      <body
+        className={`${openSansRegular.variable} ${openSansMedium.variable} ${openSansBold.variable}`}
+      >
+        <main>{children}</main>
       </body>
     </html>
   );

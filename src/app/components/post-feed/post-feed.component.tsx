@@ -3,6 +3,7 @@ import { getData } from '@/app/helpers';
 import type { PostType } from '@/app/shared/types/post-types';
 import { ENDPOINTS } from '@/app/constants';
 import { Post } from '@/app/components';
+import styles from './post-feed.module.scss';
 
 export const PostFeed: React.FC = async () => {
   const { data, status } = await getData<{ posts: PostType[] }>(ENDPOINTS.POSTS);
@@ -16,5 +17,9 @@ export const PostFeed: React.FC = async () => {
     return <div>No data!</div>;
   }
 
-  return <main>{data?.posts?.map((post) => <Post key={post.id} post={post} />)}</main>;
+  return (
+    <div className={styles.container}>
+      {data?.posts?.map((post) => <Post key={post.id} post={post} />)}
+    </div>
+  );
 };

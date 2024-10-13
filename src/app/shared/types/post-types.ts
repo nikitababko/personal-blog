@@ -1,7 +1,17 @@
 import type { TAGS } from '@/app/api/constants';
 import type { ValueOf } from 'next/constants';
 
-export type PostFragmentKindType = 'title' | 'subTitle' | 'image' | 'code';
+export type PostFragmentKindType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'text'
+  | 'info'
+  | 'image'
+  | 'code';
 
 export type PostFragmentType = {
   id: string;
@@ -10,8 +20,11 @@ export type PostFragmentType = {
     en: string;
     ru: string;
   };
-  link?: string;
-  value?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  code?: string;
 };
 
 export type PostType = {
