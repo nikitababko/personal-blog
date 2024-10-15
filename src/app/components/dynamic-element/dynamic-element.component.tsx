@@ -1,44 +1,54 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import type { DynamicElementProps } from '@/app/components/dynamic-element/dynamic-element.types';
 import Image from 'next/image';
+import { CodeSyntaxHighlighter } from '@/app/components/code-syntax-highlighter';
 import styles from './dynamic-element.module.scss';
 
-export const DynamicElement: React.FC<DynamicElementProps> = ({ kind, children, image }) => {
-  const Element = useMemo(() => {
-    switch (kind) {
+export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
+  const renderElement = () => {
+    switch (fragment.kind) {
       case 'h1':
       case 'h2':
       case 'h3':
       case 'h4':
-      case 'h5': {
-        return kind;
+      case 'h5':
+      case 'h6': {
+        if (!fragment.text?.en) return null;
+
+        const HeaderTag = fragment.kind;
+
+        return <HeaderTag className={styles[fragment.kind]}>{fragment.text?.en}</HeaderTag>;
       }
       case 'text': {
-        return 'p';
+        if (!fragment.text?.en) return null;
+
+        return <p className={styles[fragment.kind]}>{fragment.text?.en}</p>;
       }
       case 'code': {
-        return 'code';
+        if (!fragment.code) return null;
+
+        return <CodeSyntaxHighlighter code={fragment.code} />;
       }
       case 'image': {
-        return 'img';
+        if (!fragment.image?.src) return null;
+
+        return (
+          <Image
+            className={styles[fragment.kind]}
+            width={340}
+            height={320}
+            src={fragment.image?.src}
+            alt={fragment.image?.alt || 'Image'}
+          />
+        );
       }
       default: {
-        return 'div';
+        if (!fragment.text?.en) return null;
+
+        return <div className={styles.text}>{fragment.text?.en}</div>;
       }
     }
-  }, [kind]);
+  };
 
-  if (kind === 'image') {
-    return (
-      <Image
-        className={styles[kind]}
-        width={340}
-        height={320}
-        src={image?.src || ''}
-        alt={image?.alt || ''}
-      />
-    );
-  }
-
-  return <Element className={styles[kind]}>{children}</Element>;
+  return renderElement();
 };

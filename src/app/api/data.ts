@@ -71,11 +71,61 @@ export const posts: PostType[] = [
           alt: 'alt',
         },
       },
-      // {
-      //   id: 'someFragmentId',
-      //   kind: 'code',
-      //   code: 's',
-      // },
+      {
+        id: 'someFragmentId',
+        kind: 'code',
+        code: `for (let i = 0; i < quantity; i++) {
+    let string = '';
+
+    for (let j = 0; j < length; j++) {
+        if (includeUpperCaseChars) {
+            string += getRandomCharFromString(Alphabet.UpperChars);
+        }
+        if (includeLowerCaseChars) {
+            string += getRandomCharFromString(Alphabet.LowerChars);
+        }
+        if (includeNumbers) {
+            string += getRandomCharFromString(Alphabet.NumberChars);
+        }
+        if (includeSymbols) {
+            string += getRandomCharFromString(Alphabet.SymbolChars);
+        }
+    }
+
+    let password: string = getShuffledString(string.slice(FIRST_ELEMENT, length));
+
+    if (dontStartingWithANumber) {
+        if (RegExps.StartWithANumber.test(password.at(FIRST_ELEMENT) ?? '')) {
+            password = getStringWithoutStartingWithANumber(password);
+        }
+    }
+
+    if (dontStartingWithASymbol) {
+        if (RegExps.StartWithASymbol.test(password.at(FIRST_ELEMENT) ?? '')) {
+            password = getStringWithoutStartingWithASymbol(password);
+        }
+    }
+
+    if (excludeSequentialChars) {
+        password = getStringWithoutSequentialChars(password);
+    }
+
+    if (excludeSimilarChars) {
+        password = getStringWithoutSimilarChars(password);
+    }
+
+    if (excludeAmbiguousChars) {
+        password = getStringWithoutAmbiguousChars(password);
+    }
+
+    if (excludeDuplicatesChars) {
+        password = getStringWithoutDuplicates(password);
+    }
+
+    passwordsArray.push(password);
+}
+        `,
+      },
     ],
   },
   {

@@ -1,0 +1,72 @@
+@import "../../styles/functions";
+@import "../../styles/variables";
+
+.container {
+  position: relative;
+  font-size: 14px;
+
+  @media (hover: hover) {
+    &:hover {
+      .copyButton {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media screen and (max-width: $media-max-width-768) {
+    pre {
+      font-size: 10px;
+    }
+  }
+}
+
+.copyContent {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.copyTooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 15px;
+  background-color: #4B5563;
+  border: 1px solid #6a6b6c;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 8px;
+  opacity: 0;
+  transition: transition(opacity);
+
+  &Visible {
+    opacity: 1;
+  }
+}
+
+
+.copyButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #4B5563;
+  border: 1px solid #6a6b6c;
+  opacity: 0;
+  transition: transition(opacity);
+
+  @media screen and (max-width: $media-max-width-768) {
+    opacity: 1;
+  }
+
+  &Visible {
+    opacity: 1;
+  }
+}

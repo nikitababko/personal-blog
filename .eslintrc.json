@@ -87,15 +87,7 @@
         "react/jsx-boolean-value": "error",
         "react/display-name": "off",
         "react/jsx-curly-brace-presence": "error",
-        "react/forbid-component-props": [
-          "error",
-          {
-            "forbid": [
-              "style",
-              "id"
-            ]
-          }
-        ],
+        "react/forbid-component-props": "off",
         "react/jsx-fragments": [
           "error",
           "element"
