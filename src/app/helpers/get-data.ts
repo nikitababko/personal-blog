@@ -7,10 +7,10 @@ export type ApiResponse<T> = {
 };
 
 export const getData = async <T>(
-  endpoint: ValueOf<keyof typeof ENDPOINTS>,
+  query: ValueOf<keyof typeof ENDPOINTS>,
 ): Promise<ApiResponse<T>> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/${endpoint}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/${query}`);
     const { status, statusText, ok, headers } = response;
 
     if (!ok) {

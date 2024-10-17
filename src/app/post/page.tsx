@@ -1,31 +1,19 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { getData } from '@/app/helpers';
 import { ENDPOINTS } from '@/app/constants';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { PostType } from '@/app/shared/types/post-types';
 import { DynamicElement } from '@/app/components/dynamic-element';
+import { useQuery } from '@/app/hooks';
 import styles from './page.module.scss';
 
 const PostPage = () => {
   const parameters = useSearchParams();
-  const [post, setPost] = useState<PostType | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  // TODO: Add custom useQuery hook
-  useEffect(() => {
-    const response = getData<PostType>(`${ENDPOINTS.POSTS}/${parameters.get('id')}`);
-
-    response
-      .then((data) => {
-        setPost(data?.data);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
-      });
-  }, [parameters]);
+  const { data: post, isLoading } = useQuery<PostType>(
+    `${ENDPOINTS.POSTS}/${parameters.get('id')}`,
+  );
 
   // if (status >= 400) {
   //   // TODO: Add error component / redirect
