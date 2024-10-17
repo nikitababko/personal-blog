@@ -34,12 +34,6 @@
   }
 }
 
-.tag-container {
-  display: flex;
-  align-items: center;
-  gap: 17px;
-}
-
 .tags {
   display: flex;
   flex-direction: row;
@@ -47,26 +41,26 @@
   gap: 17px;
 }
 
-.tag-container {
+.tagContainer {
   display: flex;
   gap: 9px;
 }
 
-.tag-dot {
+.tagDot {
   width: 18px;
   height: 18px;
   border-radius: 50%;
 
-  &_JavaScript {
+  &JavaScript {
     background-color: #EDD950;
   }
 
-  &_TypeScript {
+  &TypeScript {
     background-color: #3077C6;
   }
 }
 
-.tag-label {
+.tagLabel {
   font-size: 20px;
   font-weight: 400;
   color: #222;

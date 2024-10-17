@@ -9,10 +9,10 @@ export const Post: React.FC<PostProps> = ({ post }) => (
 
     <div className={styles.tags}>
       {post.tags.map((tag) => (
-        <div key={tag} className={styles['tag-container']}>
-          <div className={`${styles['tag-dot']} ${styles[`tag-dot_${tag}`]}`} />
+        <div key={tag} className={styles.tagContainer}>
+          <div className={`${styles.tagDot} ${styles[`tagDot${tag}`]}`} />
 
-          <p className={styles['tag-label']}>{tag}</p>
+          <p className={styles.tagLabel}>{tag}</p>
         </div>
       ))}
     </div>
