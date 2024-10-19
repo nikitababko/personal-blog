@@ -19,7 +19,47 @@ export const posts: PostType[] = [
         id: 'someFragmentId',
         kind: 'h2',
         text: {
-          en: 'Lorem ipsum...',
+          en: 'h2 Lorem ipsum...',
+          ru: 'Какой-то текст...',
+        },
+      },
+      {
+        id: 'someFragmentId',
+        kind: 'h3',
+        text: {
+          en: 'h3 Lorem ipsum...',
+          ru: 'Какой-то текст...',
+        },
+      },
+      {
+        id: 'someFragmentId',
+        kind: 'h4',
+        text: {
+          en: 'h4 Lorem ipsum...',
+          ru: 'Какой-то текст...',
+        },
+      },
+      {
+        id: 'someFragmentId',
+        kind: 'h5',
+        text: {
+          en: 'h5 Lorem ipsum...',
+          ru: 'Какой-то текст...',
+        },
+      },
+      {
+        id: 'someFragmentId',
+        kind: 'h6',
+        text: {
+          en: 'h6 Lorem ipsum...',
+          ru: 'Какой-то текст...',
+        },
+      },
+      {
+        id: 'someFragmentId',
+        kind: 'info',
+        text: {
+          en: 'My first article article article article My first article article article article My first article article article article',
           ru: 'Какой-то текст...',
         },
       },

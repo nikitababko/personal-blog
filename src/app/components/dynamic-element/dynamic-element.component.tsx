@@ -2,6 +2,7 @@ import React from 'react';
 import type { DynamicElementProps } from '@/app/components/dynamic-element/dynamic-element.types';
 import Image from 'next/image';
 import { CodeSyntaxHighlighter } from '@/app/components/code-syntax-highlighter';
+import { IconInfo } from '@/app/components/icons';
 import styles from './dynamic-element.module.scss';
 
 export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
@@ -23,6 +24,17 @@ export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
         if (!fragment.text?.en) return null;
 
         return <p className={styles[fragment.kind]}>{fragment.text?.en}</p>;
+      }
+      case 'info': {
+        if (!fragment.text?.en) return null;
+
+        return (
+          <div className={styles[fragment.kind]}>
+            <IconInfo />
+
+            <p>{fragment.text?.en}</p>
+          </div>
+        );
       }
       case 'code': {
         if (!fragment.code) return null;
