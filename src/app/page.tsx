@@ -1,13 +1,11 @@
 import { Suspense } from 'react';
 import { PostFeed } from '@/app/components/post-feed';
+import { Loader } from '@/app/components/loader';
 
 export default async function Home() {
   return (
-    <div>
-      {/* TODO: Add loader component */}
-      <Suspense fallback={<div>Loading...</div>}>
-        <PostFeed />
-      </Suspense>
-    </div>
+    <Suspense fallback={<Loader />}>
+      <PostFeed />
+    </Suspense>
   );
 }

@@ -2,7 +2,8 @@ import React from 'react';
 import { getData } from '@/app/helpers';
 import type { PostType } from '@/app/shared/types/post-types';
 import { ENDPOINTS } from '@/app/constants';
-import { Post } from '@/app/components';
+import { Post } from '@/app/components/post';
+import { NoData } from '@/app/components/no-data';
 import styles from './post-feed.module.scss';
 
 export const PostFeed: React.FC = async () => {
@@ -13,8 +14,7 @@ export const PostFeed: React.FC = async () => {
   }
 
   if (!data || !data?.posts || data?.posts.length === 0) {
-    // TODO: Add no data component
-    return <div>No data!</div>;
+    return <NoData />;
   }
 
   return (

@@ -6,6 +6,8 @@ import React from 'react';
 import type { PostType } from '@/app/shared/types/post-types';
 import { DynamicElement } from '@/app/components/dynamic-element';
 import { useQuery } from '@/app/hooks';
+import { Loader } from '@/app/components/loader';
+import { NoData } from '@/app/components/no-data';
 import styles from './page.module.scss';
 
 const PostPage = () => {
@@ -21,13 +23,11 @@ const PostPage = () => {
   // }
 
   if (isLoading) {
-    // TODO: Add loading component
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (!post || Array.isArray(post)) {
-    // TODO: Add no data component
-    return <div>No data!</div>;
+    return <NoData />;
   }
 
   return (
