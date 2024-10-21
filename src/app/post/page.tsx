@@ -8,6 +8,7 @@ import { DynamicElement } from '@/app/components/dynamic-element';
 import { useQuery } from '@/app/hooks';
 import { Loader } from '@/app/components/loader';
 import { NoData } from '@/app/components/no-data';
+import { Footer } from '@/app/post/components';
 import styles from './page.module.scss';
 
 const PostPage = () => {
@@ -36,6 +37,8 @@ const PostPage = () => {
         {post?.fragments.map((fragment) => (
           <DynamicElement fragment={fragment} key={fragment.id} />
         ))}
+
+        <Footer post={post} />
       </div>
     </div>
   );
