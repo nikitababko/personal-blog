@@ -31,5 +31,13 @@ export type PostType = {
   id: string;
   tags: ValueOf<typeof TAGS>[];
   createdAt: string;
+  title: {
+    en: string;
+    ru: string;
+  };
+  description: {
+    en: string;
+    ru: string;
+  };
   fragments: PostFragmentType[];
 };

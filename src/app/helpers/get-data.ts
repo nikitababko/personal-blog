@@ -1,5 +1,5 @@
 import type { ValueOf } from 'next/constants';
-import type { ENDPOINTS } from '@/app/constants';
+import type { ENDPOINTS } from '@/app/shared/constants';
 
 export type ApiResponse<T> = {
   data: T | null;

@@ -6,15 +6,15 @@ export const posts: PostType[] = [
     id: '1',
     tags: [TAGS.JAVA_SCRIPT, TAGS.TYPE_SCRIPT],
     createdAt: '12-03-2023',
+    title: {
+      en: 'My first article article article article',
+      ru: 'Какой-то текст...',
+    },
+    description: {
+      en: 'Post description',
+      ru: 'Какой-то текст...',
+    },
     fragments: [
-      {
-        id: 'someFragmentId',
-        kind: 'h1',
-        text: {
-          en: 'My first article article article article',
-          ru: 'Какой-то текст...',
-        },
-      },
       {
         id: 'someFragmentId',
         kind: 'h2',
@@ -168,76 +168,76 @@ export const posts: PostType[] = [
       },
     ],
   },
-  {
-    id: 'somePostId',
-    tags: [TAGS.JAVA_SCRIPT, TAGS.TYPE_SCRIPT],
-    createdAt: '12-03-2023',
-    fragments: [
-      {
-        id: 'someFragmentId',
-        kind: 'h1',
-        text: {
-          en: 'My first article article article article',
-          ru: 'Какой-то текст...',
-        },
-      },
-      {
-        id: 'someFragmentId',
-        kind: 'h2',
-        text: {
-          en: 'Lorem ipsum...',
-          ru: 'Какой-то текст...',
-        },
-      },
-      {
-        id: 'someFragmentId',
-        kind: 'image',
-        image: {
-          src: 'https://...',
-          alt: 'alt',
-        },
-      },
-      {
-        id: 'someFragmentId',
-        kind: 'code',
-        code: 's',
-      },
-    ],
-  },
-  {
-    id: 'somePostId',
-    tags: [TAGS.JAVA_SCRIPT, TAGS.TYPE_SCRIPT],
-    createdAt: '12-03-2023',
-    fragments: [
-      {
-        id: 'someFragmentId',
-        kind: 'h1',
-        text: {
-          en: 'My first article article article article',
-          ru: 'Какой-то текст...',
-        },
-      },
-      {
-        id: 'someFragmentId',
-        kind: 'h2',
-        text: {
-          en: 'Lorem ipsum...',
-          ru: 'Какой-то текст...',
-        },
-      },
-      {
-        id: 'someFragmentId',
-        kind: 'image',
-        image: {
-          src: 'https://...',
-          alt: 'alt',
-        },
-      },
-      {
-        id: 'someFragmentId',
-        kind: 'code',
-        code: 's',
-      },
-    ],
-  },
+  // {
+  //   id: 'somePostId',
+  //   tags: [TAGS.JAVA_SCRIPT, TAGS.TYPE_SCRIPT],
+  //   createdAt: '12-03-2023',
+  //   fragments: [
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'h1',
+  //       text: {
+  //         en: 'My first article article article article',
+  //         ru: 'Какой-то текст...',
+  //       },
+  //     },
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'h2',
+  //       text: {
+  //         en: 'Lorem ipsum...',
+  //         ru: 'Какой-то текст...',
+  //       },
+  //     },
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'image',
+  //       image: {
+  //         src: 'https://...',
+  //         alt: 'alt',
+  //       },
+  //     },
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'code',
+  //       code: 's',
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 'somePostId',
+  //   tags: [TAGS.JAVA_SCRIPT, TAGS.TYPE_SCRIPT],
+  //   createdAt: '12-03-2023',
+  //   fragments: [
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'h1',
+  //       text: {
+  //         en: 'My first article article article article',
+  //         ru: 'Какой-то текст...',
+  //       },
+  //     },
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'h2',
+  //       text: {
+  //         en: 'Lorem ipsum...',
+  //         ru: 'Какой-то текст...',
+  //       },
+  //     },
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'image',
+  //       image: {
+  //         src: 'https://...',
+  //         alt: 'alt',
+  //       },
+  //     },
+  //     {
+  //       id: 'someFragmentId',
+  //       kind: 'code',
+  //       code: 's',
+  //     },
+  //   ],
+  // },
 ];

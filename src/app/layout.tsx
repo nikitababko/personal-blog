@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './styles/global.scss';
 
@@ -19,10 +18,6 @@ const openSansBold = localFont({
   variable: '--open-sans-bold',
   weight: '700',
 });
-
-export const metadata: Metadata = {
-  title: 'Personal blog',
-};
 
 export default function RootLayout({
   children,

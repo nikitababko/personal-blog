@@ -4,8 +4,8 @@ import type { PostProps } from '@/app/components/post/post.types';
 import styles from './post.module.scss';
 
 export const Post: React.FC<PostProps> = ({ post }) => (
-  <Link className={styles.container} href={`/post?id=${post.id}`}>
-    <h2 className={styles.title}>{post.fragments?.[0].text?.en}</h2>
+  <Link className={styles.container} href={`/post/${post.id}`}>
+    <h2 className={styles.title}>{post.title.en}</h2>
 
     <div className={styles.tags}>
       {post.tags.map((tag) => (
