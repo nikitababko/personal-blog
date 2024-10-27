@@ -1,21 +1,10 @@
 import type { TAGS } from '@/app/api/constants';
 import type { ValueOf } from 'next/constants';
-
-export type PostFragmentKindType =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'text'
-  | 'info'
-  | 'image'
-  | 'code';
+import type { POST_KINDS } from '@/app/shared/constants';
 
 export type PostFragmentType = {
   id: string;
-  kind: PostFragmentKindType;
+  kind: keyof typeof POST_KINDS;
   text?: {
     en: string;
     ru: string;

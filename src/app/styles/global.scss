@@ -1,14 +1,14 @@
 @import "@nikitababko/reset-css";
 
-html,
-body {
-  font-family: var(--open-sans-regular), Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: var(--open-sans-regular), Helvetica, sans-serif;
 }
 
 main {
