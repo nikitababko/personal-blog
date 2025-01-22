@@ -10,7 +10,7 @@ export const getData = async <T>(
   query: ValueOf<keyof typeof ENDPOINTS>,
 ): Promise<ApiResponse<T>> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/${query}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/personal-blog/${query}`);
     const { status, statusText, ok, headers } = response;
 
     if (!ok) {
@@ -21,6 +21,7 @@ export const getData = async <T>(
     const contentType = headers.get('content-type');
     if (contentType?.includes('application/json')) {
       const data = await response.json();
+
       return { data, status };
     }
 

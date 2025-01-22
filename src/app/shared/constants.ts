@@ -27,4 +27,13 @@ export const POST_KINDS = {
   info: 'info',
   image: 'image',
   code: 'code',
+  ul: 'ul',
+  li: 'li',
+  summary: 'summary',
 } as const;
+
+export const TAGS = {
+  JAVA_SCRIPT: 'JavaScript',
+  TYPE_SCRIPT: 'TypeScript',
+  REACT: 'React',
+};

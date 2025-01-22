@@ -7,19 +7,20 @@ import { NoData } from '@/app/components/no-data';
 import styles from './post-feed.module.scss';
 
 export const PostFeed: React.FC = async () => {
-  const { data, status } = await getData<{ posts: PostType[] }>(ENDPOINTS.POSTS);
+  const { data: posts, status } = await getData<PostType[]>(`${ENDPOINTS.POSTS}`);
+
   if (status >= 500) {
     // TODO: Add error component / redirect
     return <div>Something went wrong!</div>;
   }
 
-  if (!data || !data?.posts || data?.posts.length === 0) {
+  if (!posts || !posts || posts.length === 0) {
     return <NoData />;
   }
 
   return (
     <div className={styles.container}>
-      {data?.posts?.map((post) => <Post key={post.id} post={post} />)}
+      {posts?.map((post) => <Post key={post.id} post={post} />)}
     </div>
   );
 };

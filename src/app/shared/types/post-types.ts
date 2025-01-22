@@ -1,6 +1,5 @@
-import type { TAGS } from '@/app/api/constants';
 import type { ValueOf } from 'next/constants';
-import type { POST_KINDS } from '@/app/shared/constants';
+import type { POST_KINDS, TAGS } from '@/app/shared/constants';
 
 export type PostFragmentType = {
   id: string;

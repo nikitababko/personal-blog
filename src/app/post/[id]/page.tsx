@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: PostPageProps) {
   if (data && !Array.isArray(data)) {
     return {
       title: data.title.en,
-      description: data?.description.en,
+      // description: data?.description.en,
       keywords: data.tags,
       robots: {
         index: true,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PostPageProps) {
       openGraph: {
         type: 'article',
         title: data.title.en,
-        description: data.description.en,
+        description: data?.description?.en,
         // images: ['/assets/avatar.png'], // TODO: add post image
         emails: [PROJECT_INFO.AUTHOR.EMAIL],
       },
