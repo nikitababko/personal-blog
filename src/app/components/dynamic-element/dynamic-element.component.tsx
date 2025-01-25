@@ -4,10 +4,18 @@ import Image from 'next/image';
 import { CodeSyntaxHighlighter } from '@/app/components/code-syntax-highlighter';
 import { IconInfo } from '@/app/components/icons';
 import parse from 'html-react-parser';
+import clsx from 'clsx';
 import styles from './dynamic-element.module.scss';
+
+const selectedLanguage = 'en';
 
 export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
   const renderElement = () => {
+    const tagClassNames = clsx(
+      styles[fragment.kind],
+      fragment?.styleModifiers?.map((modifier) => styles[modifier]),
+    );
+
     switch (fragment.kind) {
       case 'h1':
       case 'h2':
@@ -15,41 +23,47 @@ export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
       case 'h4':
       case 'h5':
       case 'h6': {
-        if (!fragment.text?.en) return null;
+        if (!fragment.text?.[selectedLanguage]) return null;
 
         const HeaderTag = fragment.kind;
+        // const headerTagClassNames = clsx(
+        //   styles[fragment.kind],
+        //   fragment?.styleModifiers?.map((module_) => styles[module_]),
+        // );
 
         return (
-          <HeaderTag className={styles[fragment.kind]}>{parse(fragment.text?.en)}</HeaderTag>
+          <HeaderTag className={tagClassNames}>
+            {parse(fragment.text?.[selectedLanguage])}
+          </HeaderTag>
         );
       }
       case 'text': {
-        if (!fragment.text?.en) return null;
+        if (!fragment.text?.[selectedLanguage]) return null;
 
-        return <p className={styles[fragment.kind]}>{parse(fragment.text?.en)}</p>;
+        return <p className={tagClassNames}>{parse(fragment.text?.[selectedLanguage])}</p>;
       }
       case 'info': {
-        if (!fragment.text?.en) return null;
+        if (!fragment.text?.[selectedLanguage]) return null;
 
         return (
           <div className={styles[fragment.kind]}>
             <IconInfo />
 
-            <p>{parse(fragment.text?.en)}</p>
+            <p>{parse(fragment.text?.[selectedLanguage])}</p>
           </div>
         );
       }
       case 'code': {
-        if (!fragment.code) return null;
+        if (!fragment.code?.[selectedLanguage]) return null;
 
-        return <CodeSyntaxHighlighter code={fragment.code} />;
+        return <CodeSyntaxHighlighter code={fragment.code[selectedLanguage]} />;
       }
       case 'image': {
         if (!fragment.image?.src) return null;
 
         return (
           <Image
-            className={styles[fragment.kind]}
+            className={tagClassNames}
             width={340}
             height={320}
             src={fragment.image?.src}
@@ -66,7 +80,7 @@ export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
           return null;
 
         return (
-          <ul className={styles[fragment.kind]}>
+          <ul className={tagClassNames}>
             {fragment.fragments.map((item) => (
               <DynamicElement key={item.id} fragment={item} />
             ))}
@@ -74,19 +88,19 @@ export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
         );
       }
       case 'li': {
-        if (!fragment.text?.en) return null;
+        if (!fragment.text?.[selectedLanguage]) return null;
 
-        return <li className={styles[fragment.kind]}>{parse(fragment.text?.en)}</li>;
+        return <li className={tagClassNames}>{parse(fragment.text?.[selectedLanguage])}</li>;
       }
-      case 'summary': {
-        if (!fragment.text?.en) return null;
+      case 'conclusion': {
+        if (!fragment.text?.[selectedLanguage]) return null;
 
-        return <p className={styles[fragment.kind]}>{parse(fragment.text?.en)}</p>;
+        return <p className={tagClassNames}>{parse(fragment.text?.[selectedLanguage])}</p>;
       }
       default: {
-        if (!fragment.text?.en) return null;
+        if (!fragment.text?.[selectedLanguage]) return null;
 
-        return <p className={styles.text}>{parse(fragment.text?.en)}</p>;
+        return <p className={styles.text}>{parse(fragment.text?.[selectedLanguage])}</p>;
       }
     }
   };

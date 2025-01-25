@@ -29,7 +29,7 @@ export const POST_KINDS = {
   code: 'code',
   ul: 'ul',
   li: 'li',
-  summary: 'summary',
+  conclusion: 'conclusion',
 } as const;
 
 export const TAGS = {

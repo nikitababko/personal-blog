@@ -4,6 +4,7 @@ import type { POST_KINDS, TAGS } from '@/app/shared/constants';
 export type PostFragmentType = {
   id: string;
   kind: keyof typeof POST_KINDS;
+  styleModifiers: ('underline' | 'strong')[];
   text?: {
     en: string;
     ru: string;
@@ -12,7 +13,10 @@ export type PostFragmentType = {
     src: string;
     alt: string;
   };
-  code?: string;
+  code?: {
+    en: string;
+    ru: string;
+  };
 };
 
 export type PostType = {
