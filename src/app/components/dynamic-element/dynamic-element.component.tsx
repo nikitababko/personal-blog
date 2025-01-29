@@ -5,9 +5,8 @@ import { CodeSyntaxHighlighter } from '@/app/components/code-syntax-highlighter'
 import { IconInfo } from '@/app/components/icons';
 import parse from 'html-react-parser';
 import clsx from 'clsx';
+import { selectedLanguage } from '@/app/shared';
 import styles from './dynamic-element.module.scss';
-
-const selectedLanguage = 'en';
 
 export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
   const renderElement = () => {
@@ -54,9 +53,9 @@ export const DynamicElement: React.FC<DynamicElementProps> = ({ fragment }) => {
         );
       }
       case 'code': {
-        if (!fragment.code?.[selectedLanguage]) return null;
+        if (!fragment.text?.[selectedLanguage]) return null;
 
-        return <CodeSyntaxHighlighter code={fragment.code[selectedLanguage]} />;
+        return <CodeSyntaxHighlighter code={fragment.text[selectedLanguage]} />;
       }
       case 'image': {
         if (!fragment.image?.src) return null;

@@ -37,3 +37,8 @@ export const TAGS = {
   TYPE_SCRIPT: 'TypeScript',
   REACT: 'React',
 };
+
+export const LANGUAGES = {
+  EN: 'en',
+  RU: 'ru',
+} as const;

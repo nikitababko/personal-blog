@@ -8,6 +8,7 @@ import styles from '@/app/post/[id]/page.module.scss';
 import dynamicElementStyles from '@/app/components/dynamic-element/dynamic-element.module.scss';
 import { Footer } from '@/app/post/[id]/components/footer';
 import Link from 'next/link';
+import { selectedLanguage } from '@/app/shared';
 
 export const Content: React.FC<PostPageProps> = async ({ params }) => {
   const { data, status } = await getData<PostType>(`${ENDPOINTS.POSTS}/${params.id}`);
@@ -24,7 +25,7 @@ export const Content: React.FC<PostPageProps> = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={dynamicElementStyles.h1}>{data.title.en}</h1>
+        <h1 className={dynamicElementStyles.h1}>{data.title[selectedLanguage]}</h1>
 
         {data?.fragments.map((fragment) => {
           if (Object.keys(TITLE_KINDS).includes(fragment.kind)) {
